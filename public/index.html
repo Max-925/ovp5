@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моніторинг СЕС "Еко-Енергія"</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Статистика СЕС (Real-time)</h1>
+        <div class="status-indicator">
+            <div class="dot" id="status-dot"></div>
+            <span id="server-status">Підключення...</span>
+        </div>
+    </header>
+
+    <div class="kpi-grid">
+        <div class="kpi-card" data-color="blue">
+            <div class="kpi-title">Потужність</div>
+            <p class="kpi-value"><span id="val-power">0</span> <span class="kpi-unit">кВт</span></p>
+        </div>
+        <div class="kpi-card" data-color="yellow">
+            <div class="kpi-title">Освітленість</div>
+            <p class="kpi-value"><span id="val-irradiance">0</span> <span class="kpi-unit">Вт/м²</span></p>
+        </div>
+        <div class="kpi-card" data-color="green">
+            <div class="kpi-title">Енергія за день</div>
+            <p class="kpi-value"><span id="val-energy">0</span> <span class="kpi-unit">кВт·год</span></p>
+        </div>
+        <div class="kpi-card" data-color="purple">
+            <div class="kpi-title">Ефективність (ККД)</div>
+            <p class="kpi-value"><span id="val-efficiency">0</span> <span class="kpi-unit">%</span></p>
+        </div>
+        <div class="kpi-card" data-color="red">
+            <div class="kpi-title">Температура</div>
+            <p class="kpi-value"><span id="val-temp">0</span> <span class="kpi-unit">°C</span></p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Генерація за останні 24 години</h3>
+        <canvas id="historyChart" height="80"></canvas>
+    </div>
+
+    <div class="panel">
+        <h3>Історія вимірювань</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Час</th>
+                <th>Потужність (кВт)</th>
+                <th>Освітленість (Вт/м²)</th>
+                <th>Температура (°C)</th>
+                <th>ККД (%)</th>
+            </tr>
+            </thead>
+            <tbody id="historyTableBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="module" src="index.js"></script>
+
+</body>
+</html>
